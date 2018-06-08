@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="C:\Users\Holden\Programming\HTML\HelpfulFiles\CssFiles\CssStyleReset.css">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      let playerscore = 0;
+      let computerscore = 0;
+      function computerPlay(){
+        let random = Math.floor(Math.random()*3);
+        switch (random) {
+          case (0):
+            return 'Rock';
+            break;
+          case (1):
+            return 'Paper';
+            break;
+          case (2):
+            return 'Scissors';
+            break;
+        }
+      }
+
+      function winner(pS,cS){
+        pS = pS.toLowerCase();
+        cS = cS.toLowerCase();
+        if (pS != 'rock' && pS != 'paper' && pS != 'scissors'){
+          return 'Invalid Entry!';
+        }
+        switch (pS) {
+          case 'paper':
+            if (cS == 'rock'){
+              console.log('You Win!!! Paper Beats Rock!');
+              return true;
+            }else if (pS == cS){
+              return 'It is a Tie Of Paper!'
+            }else{
+              console.log('You Lose :(. Scissors Beat Paper.');
+              return false;
+            }
+
+            break;
+          case 'rock':
+            if (cS == 'scissors'){
+              console.log('You Win!!! Rock Beats Scissors!!');
+              return true;
+            }else if (pS == cS){
+              console.log('It is a Tie Of Rocks!')
+              return 'It is a Tie Of Rocks!'
+            }else{
+              console.log('You Lose :(. Paper Beats Rock.');
+              return false;
+            }
+            break;
+          case 'scissors':
+            if (cS == 'paper'){
+              console.log('You Win!!! Scissors Beat Paper!!');
+              return true;
+            }else if (pS == cS){
+              return 'It is a Tie Of Scissors!'
+            }else{
+
+              console.log('You Lose :(. Rock Beats Scissors.');
+              return false;
+            }
+            break;
+
+          }
+        }
+        function game(){
+          let final = winner(prompt('What Will You Play?'), computerPlay());
+          if (final == 'Invalid Entry!' || final == 'It is a Tie Of Rocks!'|| final = 'It is a Tie Of Scissors!'|| final == 'It is a Tie Of Paper!' ){
+            console.log(final);
+            return false;
+          }else{
+            if (final == true){
+              playerscore += 1;
+            }else if (final == 'tie'){
+            }else{
+              computerscore += 1;
+            }
+          }
+        }
+        for (let i = 0;i<=5;i++){
+          if (i == 5){
+            if (computerscore > playerscore){
+              console.log('The Computer Wins The Game!')
+            }else{
+              console.log('You Win The Game!!')
+            }
+          }else{
+            let goAhead = game()
+            if (goAhead == false){
+              i--
+            }
+          }
+
+        }
+      </script>
+  </body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="C:\Users\Holden\Programming\HTML\HelpfulFiles\CssFiles\CssStyleReset.css">
+  <title></title>
+</head>
+
+<body>
+  <div class="buttons">
+    <div onclick="winner('rock',computerPlay())" class="rock">Rock</div>
+    <div onclick="winner('paper',computerPlay())" class="paper">Paper</div>
+    <div onclick="winner('scissors',computerPlay())" class="scissors">Scissors</div>
+  </div>
+  <div class="scores">
+    <p class="player_score">Player Score: 0</p>
+    <p class="computer_score">Computer Score: 0</p>
+    <p class="ties">Ties: 0</p>
+  </div>
+  <div class="picks">
+    <p class="player_pick">You Have Not <br>Picked Anything</p>
+    <p class="computer_pick">The Computer Has Not <br> Picked Anything</p>
+  </div>
+  <div class="outcome">
+    <p class="outcome">Pick Rock, Paper, or Scissors</p>
+  </div>
+  <div class="matches">
+    <p class="matches"><u>Matches Played: 0</u></p>
+  </div>
+
+
+  <script>
+    let p_score = 0;
+    let c_score = 0;
+    let p_text = document.querySelector('.player_score');
+    let c_text = document.querySelector('.computer_score');
+    let p_pick = document.querySelector('.player_pick');
+    let c_pick = document.querySelector('.computer_pick');
+    let para = document.querySelector('.outcome');
+    let matchesText = document.querySelector('.matches');
+    let matches = 0;
+    let tiesText = document.querySelector('.ties');
+    let ties = 0;
+
+    function computerPlay() {
+      let random = Math.floor(Math.random() * 3);
+      switch (random) {
+        case (0):
+          return 'rock';
+          break;
+        case (1):
+          return 'paper';
+          break;
+        case (2):
+          return 'scissors';
+          break;
+      }
+    }
+
+    function winner(pS, cS) {
+      switch (pS) {
+        case 'paper':
+          if (cS == 'rock') {
+            para.textContent = 'You Win!!! Paper Beats Rock!';
+            p_score += 1;
+          } else if (pS == cS) {
+            ties += 1
+          } else {
+            para.textContent = 'You Lose :(. Scissors Beat Paper.';
+            c_score += 1;
+          }
+
+          break;
+        case 'rock':
+          if (cS == 'scissors') {
+            para.textContent = 'You Win!!! Rock Beats Scissors!!';
+            p_score += 1;
+          } else if (pS == cS) {
+            para.textContent = 'It is a Tie Of Rocks!';
+            ties += 1
+          } else {
+            para.textContent = 'You Lose :(. Paper Beats Rock.';
+            c_score += 1;
+
+          }
+          break;
+        case 'scissors':
+          if (cS == 'paper') {
+            para.textContent = 'You Win!!! Scissors Beat Paper!!';
+            p_score += 1;
+
+          } else if (pS == cS) {
+            return 'It is a Tie Of Scissors!'
+            ties += 1
+          } else {
+
+            para.textContent = 'You Lose :(. Rock Beats Scissors.';
+            c_score += 1;
+
+          }
+          break;
+      }
+
+      function firstUpper(word) {
+        word = word.toLowerCase();
+        first = word[0].toUpperCase();
+        word = word.substring(1, word.length);
+        finalWord = first + word;
+        return finalWord;
+      }
+      c_text.textContent = 'Computer Score: ' + c_score;
+      p_text.textContent = 'Player Score: ' + p_score;
+
+      let p_pick_word = firstUpper(pS);
+      let c_pick_word = firstUpper(cS);
+      p_pick.textContent = 'You Picked ' + p_pick_word;
+      c_pick.textContent = 'The Computer Picked ' + c_pick_word;
+
+      matches += 1
+      matchesText.textContent = 'Matches Played: ' + matches;
+
+      tiesText.textContent = 'Ties: ' + ties;
+      return;
+    }
+  </script>
+
+  <style media="screen">
+    div.buttons {
+      position: absolute;
+      border: 10px;
+      border-color: red;
+      top: calc(75% - 50px);
+      left: calc(50% - 200px);
+    }
+
+    .rock,
+    .paper,
+    .scissors {
+      position: absolute;
+      margin: 30px;
+      width: 90px;
+      height: 35px;
+      background: rgb(180, 13, 3);
+      top: 0;
+      border: 5px;
+      border-color: rgb(180, 13, 3);
+      border-radius: 3px;
+      text-align: center;
+      line-height: 30px;
+      cursor: hand;
+      border-style: groove;
+    }
+
+    .rock:active,
+    .paper:active,
+    .scissors:active {
+      border-style: ridge;
+      line-height: 35px;
+    }
+
+    .paper {
+      left: 130px;
+    }
+
+    .scissors {
+      left: 260px;
+    }
+
+    .scores {
+      position: absolute;
+      top: calc(23% - 50px);
+      left: calc(50% - 28px);
+      width: 350px;
+      height: 100px;
+    }
+
+    .computer_score,
+    .player_score,
+    .ties {
+      position: absolute;
+      color: rgb(0, 156, 255);
+      font-family: courier;
+      font-size: 20px;
+      padding: 5px;
+      border-width: 5px;
+      border-color: rgb(0, 156, 255);
+      border-style: dotted;
+    }
+
+    .computer_score {
+      left: 125px;
+    }
+
+    .player_score {
+      left: -300px;
+    }
+
+    .ties {
+      left: -25px;
+    }
+
+    .picks {
+      position: absolute;
+      width: 600px;
+      height: 100px;
+      top: 50%;
+      left: calc(50% - 300px);
+      color: rgb(0, 156, 255);
+      font-family: courier;
+      font-size: 20px;
+    }
+
+    .player_pick {
+      position: absolute;
+      left: 50px;
+    }
+
+    .computer_pick {
+      position: absolute;
+      left: 350px;
+    }
+    .outcome{
+      position:absolute;
+      top:34%;
+      left:calc(50% - 195px);
+      width:400px;
+      color: rgb(0, 156, 255);
+      font-family: courier;
+      font-size: 20px;
+      text-align: center;
+    }
+    .matches{
+      position:absolute;
+      width:500px;
+      top:4%;
+      left:calc(50% - 225px);
+      color: rgb(180, 13, 3);
+      font-family: courier;
+      font-size: 40px;
+    }
+    b{
+      color: rgb(180, 13, 3);
+    }
+  </style>
+</body>
+
+</html>
