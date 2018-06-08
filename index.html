@@ -29,7 +29,124 @@
     <p class="matches">Matches Played: 0</p>
   </div>
 
-
+  <style media="screen">
+    div.buttons {
+      position: absolute;
+      border: 10px;
+      border-color: red;
+      top: calc(75% - 50px);
+      left: calc(50% - 200px);
+    }
+  
+    .rock,
+    .paper,
+    .scissors {
+      position: absolute;
+      margin: 30px;
+      width: 90px;
+      height: 35px;
+      background: rgb(180, 13, 3);
+      top: 0;
+      border: 5px;
+      border-color: rgb(180, 13, 3);
+      border-radius: 3px;
+      text-align: center;
+      line-height: 30px;
+      cursor: hand;
+      border-style: groove;
+    }
+  
+    .rock:active,
+    .paper:active,
+    .scissors:active {
+      border-style: ridge;
+      line-height: 35px;
+    }
+  
+    .paper {
+      left: 130px;
+    }
+  
+    .scissors {
+      left: 260px;
+    }
+  
+    .scores {
+      position: absolute;
+      top: calc(23% - 50px);
+      left: calc(50% - 28px);
+      width: 350px;
+      height: 100px;
+    }
+  
+    .computer_score,
+    .player_score,
+    .ties {
+      position: absolute;
+      color: rgb(0, 156, 255);
+      font-family: courier;
+      font-size: 20px;
+      padding: 5px;
+      border-width: 5px;
+      border-color: rgb(0, 156, 255);
+      border-style: dotted;
+    }
+  
+    .computer_score {
+      left: 125px;
+    }
+  
+    .player_score {
+      left: -300px;
+    }
+  
+    .ties {
+      left: -25px;
+    }
+  
+    .picks {
+      position: absolute;
+      width: 600px;
+      height: 100px;
+      top: 50%;
+      left: calc(50% - 300px);
+      color: rgb(0, 156, 255);
+      font-family: courier;
+      font-size: 20px;
+    }
+  
+    .player_pick {
+      position: absolute;
+      left: 50px;
+    }
+  
+    .computer_pick {
+      position: absolute;
+      left: 350px;
+    }
+    .outcome{
+      position:absolute;
+      top:34%;
+      left:calc(50% - 195px);
+      width:400px;
+      color: rgb(0, 156, 255);
+      font-family: courier;
+      font-size: 20px;
+      text-align: center;
+    }
+    .matches{
+      position:absolute;
+      width:500px;
+      top:1%;
+      left:calc(50% - 225px);
+      color: rgb(180, 13, 3);
+      font-family: courier;
+      font-size: 40px;
+    }
+    b{
+      color: rgb(180, 13, 3);
+    }
+  </style>
   <script>
     let p_score = 0;
     let c_score = 0;
@@ -125,124 +242,7 @@
     }
   </script>
 
-  <style media="screen">
-    div.buttons {
-      position: absolute;
-      border: 10px;
-      border-color: red;
-      top: calc(75% - 50px);
-      left: calc(50% - 200px);
-    }
-
-    .rock,
-    .paper,
-    .scissors {
-      position: absolute;
-      margin: 30px;
-      width: 90px;
-      height: 35px;
-      background: rgb(180, 13, 3);
-      top: 0;
-      border: 5px;
-      border-color: rgb(180, 13, 3);
-      border-radius: 3px;
-      text-align: center;
-      line-height: 30px;
-      cursor: hand;
-      border-style: groove;
-    }
-
-    .rock:active,
-    .paper:active,
-    .scissors:active {
-      border-style: ridge;
-      line-height: 35px;
-    }
-
-    .paper {
-      left: 130px;
-    }
-
-    .scissors {
-      left: 260px;
-    }
-
-    .scores {
-      position: absolute;
-      top: calc(23% - 50px);
-      left: calc(50% - 28px);
-      width: 350px;
-      height: 100px;
-    }
-
-    .computer_score,
-    .player_score,
-    .ties {
-      position: absolute;
-      color: rgb(0, 156, 255);
-      font-family: courier;
-      font-size: 20px;
-      padding: 5px;
-      border-width: 5px;
-      border-color: rgb(0, 156, 255);
-      border-style: dotted;
-    }
-
-    .computer_score {
-      left: 125px;
-    }
-
-    .player_score {
-      left: -300px;
-    }
-
-    .ties {
-      left: -25px;
-    }
-
-    .picks {
-      position: absolute;
-      width: 600px;
-      height: 100px;
-      top: 50%;
-      left: calc(50% - 300px);
-      color: rgb(0, 156, 255);
-      font-family: courier;
-      font-size: 20px;
-    }
-
-    .player_pick {
-      position: absolute;
-      left: 50px;
-    }
-
-    .computer_pick {
-      position: absolute;
-      left: 350px;
-    }
-    .outcome{
-      position:absolute;
-      top:34%;
-      left:calc(50% - 195px);
-      width:400px;
-      color: rgb(0, 156, 255);
-      font-family: courier;
-      font-size: 20px;
-      text-align: center;
-    }
-    .matches{
-      position:absolute;
-      width:500px;
-      top:1%;
-      left:calc(50% - 225px);
-      color: rgb(180, 13, 3);
-      font-family: courier;
-      font-size: 40px;
-    }
-    b{
-      color: rgb(180, 13, 3);
-    }
-  </style>
+  
 </body>
 
 </html>
