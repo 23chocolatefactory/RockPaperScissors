@@ -233,12 +233,29 @@
       let c_pick_word = firstUpper(cS);
       p_pick.textContent = 'You Picked ' + p_pick_word;
       c_pick.textContent = 'The Computer Picked ' + c_pick_word;
+      
 
       matches += 1
       matchesText.textContent = 'Matches Played: ' + matches;
+      matchesText.style.position = 'absolute';
+      matchesText.style.width = '500px';
+      matchesText.style.top = '1%';
+      matchesText.style.left = 'calc(50% - 225px)';
+      matchesText.style.color = 'rgb(180, 13, 3)';
+      matchesText.style.fontFamily = 'courier';
+      matchesText.style.fontSize = '40px';
 
       tiesText.textContent = 'Ties: ' + ties;
       return;
+      
+      para.style.position = 'absolute';
+      para.style.top = '34%';
+      para.style.left = 'calc(50% - 195px)';
+      para.style.width = '400px';
+      para.style.color =  'rgb(0, 156, 255)';
+      para.style.fontFamily =  'courier';
+      para.style.fontSize =  '20px';
+      para.style.textAlign =  'center';
     }
   </script>
 
